@@ -20,6 +20,6 @@ jobs:
       - 
         name: Build the Docker image
         run: |
-          docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/windows-ltsc2016-vs2019:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/windows-ltsc2016-vs2019:latest
+          docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USERNAME }}/docker-ltsc2016-vs16-dotnet:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/docker-ltsc2016-vs16-dotnet:latest
           docker logout

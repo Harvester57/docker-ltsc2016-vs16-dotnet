@@ -5,7 +5,7 @@ SHELL ["cmd", "/S", "/C"]
 LABEL maintainer "florian.stosse@safrangroup.com"
 LABEL lastupdate "2023-02-14"
 LABEL author "Florian Stosse"
-LABEL description "Windows 10 LTSC 2019 image, with Microsoft Build Tools 2019 (v16.0)"
+LABEL description "Windows 10 LTSC 2019 image, with Microsoft Build Tools 2019 (v16.0) for .NET applications"
 LABEL license "MIT license"
 
 # Set up environment to collect install errors.
@@ -21,11 +21,7 @@ RUN \
   C:/TEMP/Install.cmd C:/TEMP/vs_buildtools.exe --quiet --wait --norestart --nocache \
   --channelUri C:/TEMP/VisualStudio.chman \
   --installChannelUri C:/TEMP/VisualStudio.chman \
-  --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended \
-  --add Microsoft.VisualStudio.Component.VC.Llvm.Clang \
-  --add Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset \
-  --add Microsoft.VisualStudio.Component.VC.ATLMFC \
-  --add Microsoft.VisualStudio.Component.VC.CLI.Support \
+  --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools --includeRecommended \
   --installPath C:/BuildTools
 
 FROM mcr.microsoft.com/windows/servercore:1809-KB5032196-amd64

@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/_/microsoft-windows-servercore
-FROM mcr.microsoft.com/windows/servercore:1809-KB5032196-amd64 AS builder
+FROM mcr.microsoft.com/windows/servercore:1809-KB5033371-amd64 AS builder
 SHELL ["cmd", "/S", "/C"]
 
 LABEL maintainer "florian.stosse@safrangroup.com"
@@ -24,7 +24,7 @@ RUN \
   --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools --includeRecommended \
   --installPath C:/BuildTools
 
-FROM mcr.microsoft.com/windows/servercore:1809-KB5032196-amd64
+FROM mcr.microsoft.com/windows/servercore:1809-KB5033371-amd64
 
 COPY --from=builder C:/BuildTools/ C:/BuildTools
 

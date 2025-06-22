@@ -2,8 +2,8 @@
 FROM mcr.microsoft.com/windows/servercore:1809@sha256:862b24ccf5e399fc3bea746c7ac68c16f3fbcfa199532a3e506b7e03e57217b9 AS builder
 SHELL ["cmd", "/S", "/C"]
 
-LABEL maintainer "florian.stosse@safrangroup.com"
-LABEL lastupdate "2023-02-14"
+LABEL maintainer "florian.stosse@gmail.com"
+LABEL lastupdate "2025-06-22"
 LABEL author "Florian Stosse"
 LABEL description "Windows 10 LTSC 2019 image, with Microsoft Build Tools 2019 (v16.0) for .NET applications"
 LABEL license "MIT license"

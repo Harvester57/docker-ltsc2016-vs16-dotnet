@@ -4,8 +4,6 @@ updates:
   directory: "/" # Location of package manifests
   commit-message:
     prefix: "docker"
-  reviewers:
-  - "Harvester57"
   assignees:
   - "Harvester57"
   schedule:
@@ -28,8 +26,6 @@ updates:
   directory: "/"
   commit-message:
     prefix: "actions"
-  reviewers:
-  - "Harvester57"
   assignees:
   - "Harvester57"
   schedule:

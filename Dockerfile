@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/_/microsoft-windows-servercore
-FROM mcr.microsoft.com/windows/servercore:1809@sha256:862b24ccf5e399fc3bea746c7ac68c16f3fbcfa199532a3e506b7e03e57217b9 AS builder
+FROM mcr.microsoft.com/windows/servercore:1809-amd64@sha256:1064388d840ea5ea6e5094a7429a33983dfad0e9b1ff3a308f1083614706181c AS builder
 SHELL ["cmd", "/S", "/C"]
 
 LABEL maintainer "florian.stosse@gmail.com"
@@ -24,7 +24,7 @@ RUN \
   --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools --includeRecommended \
   --installPath C:/BuildTools
 
-FROM mcr.microsoft.com/windows/servercore:1809sha256:862b24ccf5e399fc3bea746c7ac68c16f3fbcfa199532a3e506b7e03e57217b9	
+FROM mcr.microsoft.com/windows/servercore:1809-amd64@sha256:1064388d840ea5ea6e5094a7429a33983dfad0e9b1ff3a308f1083614706181c
 
 COPY --from=builder C:/BuildTools/ C:/BuildTools
 

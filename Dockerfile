@@ -3,15 +3,9 @@ ARG BUILDKIT_SBOM_SCAN_STAGE=true
 FROM mcr.microsoft.com/windows/servercore:ltsc2022-amd64@sha256:6b43c814ed2a800563083ce3193e5f1951d4d6a18fd2879ff45173851db82bd5 AS builder
 SHELL ["cmd", "/S", "/C"]
 
-LABEL maintainer "florian.stosse@gmail.com"
-LABEL lastupdate "2025-06-22"
-LABEL author "Florian Stosse"
-LABEL description "Windows 10 LTSC 2019 image, with Microsoft Build Tools 2019 (v16.0) for .NET applications"
-LABEL license "MIT license"
-
 # Set up environment to collect install errors.
 ADD https://aka.ms/vscollect.exe C:/TEMP/collect.exe
-ADD Install.cmd C:/TEMP
+COPY Install.cmd C:/TEMP/
 
 # Download channel for fixed install.
 ADD https://aka.ms/vs/16/release/channel C:/TEMP/VisualStudio.chman
@@ -26,6 +20,11 @@ RUN \
   --installPath C:/BuildTools
 
 FROM mcr.microsoft.com/windows/servercore:ltsc2022-amd64@sha256:6b43c814ed2a800563083ce3193e5f1951d4d6a18fd2879ff45173851db82bd5
+
+LABEL org.opencontainers.image.authors="Florian Stosse <florian.stosse@gmail.com>"
+LABEL org.opencontainers.image.created="2025-06-22"
+LABEL org.opencontainers.image.description="Windows 10 LTSC 2019 image, with Microsoft Build Tools 2019 (v16.0) for .NET applications"
+LABEL org.opencontainers.image.licenses="MIT license"
 
 COPY --from=builder C:/BuildTools/ C:/BuildTools
 

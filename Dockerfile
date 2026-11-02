@@ -1,6 +1,6 @@
 # Cf. https://hub.docker.com/_/microsoft-windows-servercore
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
-FROM mcr.microsoft.com/windows/servercore:ltsc2022-amd64@sha256:61f899eaf1d0c1810bd9c72d00a54e8c8400a5b6e19e3d22d19616d50e4a822b AS builder
+FROM mcr.microsoft.com/windows/servercore:ltsc2022-amd64@sha256:df8887a9e3ea17894720a023154fecce9dc6cc685ca5ff718a7f197f1dcff182 AS builder
 SHELL ["cmd", "/S", "/C"]
 
 # Set up environment to collect install errors.
@@ -19,7 +19,7 @@ RUN \
   --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools --includeRecommended \
   --installPath C:/BuildTools
 
-FROM mcr.microsoft.com/windows/servercore:ltsc2022-amd64@sha256:61f899eaf1d0c1810bd9c72d00a54e8c8400a5b6e19e3d22d19616d50e4a822b
+FROM mcr.microsoft.com/windows/servercore:ltsc2022-amd64@sha256:df8887a9e3ea17894720a023154fecce9dc6cc685ca5ff718a7f197f1dcff182
 
 LABEL org.opencontainers.image.authors="Florian Stosse <florian.stosse@gmail.com>"
 LABEL org.opencontainers.image.created="2025-06-22"
